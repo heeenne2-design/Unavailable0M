@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unavailable0M</title>
+
+<meta name="description" content="Creative portfolio for design, wallpapers, widgets, UI concepts and digital projects.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#070707;
+  --card:#101010;
+  --text:#f5f5f5;
+  --muted:#9b9b9b;
+  --line:#202020;
+  --accent:#fff;
+  --max:1180px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  animation:pageReveal 1.2s cubic-bezier(.22,1,.36,1) both;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:#070707;
+}
+
+.background::before{
+  content:"";
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  left:-180px;
+  top:-220px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(100,100,100,.75) 0%,
+      rgba(55,55,55,.35) 30%,
+      transparent 70%
+    );
+
+  filter:blur(70px);
+
+  animation:
+    glowOne
+    16s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.background::after{
+  content:"";
+  position:absolute;
+
+  width:650px;
+  height:650px;
+
+  right:-160px;
+  bottom:-180px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(65,65,65,.7) 0%,
+      rgba(35,35,35,.3) 30%,
+      transparent 70%
+    );
+
+  filter:blur(75px);
+
+  animation:
+    glowTwo
+    18s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* =========================================================
+   THINKING FIVE BACKGROUND ANIMATION
+========================================================= */
+
+.background-animation{
+
+  position:absolute;
+
+  width:min(78vw, 760px);
+  height:min(78vw, 760px);
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  opacity:.055;
+
+  color:#fff;
+
+  filter:blur(.2px);
+
+}
+
+.background-animation svg{
+
+  width:100%;
+  height:100%;
+
+  overflow:visible;
+
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW ANIMATIONS
+========================================================= */
+
+@keyframes glowOne{
+
+  0%{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  100%{
+    transform:
+      translate3d(180px,100px,0)
+      scale(1.15);
+  }
+
+}
+
+@keyframes glowTwo{
+
+  0%{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  100%{
+    transform:
+      translate3d(-160px,-120px,0)
+      scale(1.12);
+  }
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+main,
+footer{
+  position:relative;
+  z-index:1;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  width:min(
+    var(--max),
+    calc(100% - 40px)
+  );
+
+  margin:auto;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav{
+
+  position:fixed;
+
+  top:18px;
+  left:50%;
+
+  width:min(
+    var(--max),
+    calc(100% - 28px)
+  );
+
+  transform:translateX(-50%);
+
+  z-index:1000;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  padding:
+    13px
+    16px
+    13px
+    20px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(180%);
+
+  backdrop-filter:
+    blur(30px)
+    saturate(180%);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -1px 0 rgba(255,255,255,.025);
+
+  animation:
+    navReveal
+    1s
+    cubic-bezier(.22,1,.36,1)
+    .15s
+    both;
+}
+
+nav::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:inherit;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.008)
+    );
+
+  pointer-events:none;
+}
+
+nav::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:12%;
+  right:12%;
+  top:0;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.28),
+      transparent
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   NAV CONTENT
+========================================================= */
+
+.logo{
+
+  position:relative;
+  z-index:2;
+
+  font-weight:800;
+
+  letter-spacing:-.04em;
+
+}
+
+.links{
+
+  position:relative;
+  z-index:2;
+
+  display:flex;
+
+  gap:24px;
+
+  color:#aaa;
+
+  font-size:14px;
+
+}
+
+.links a{
+
+  transition:
+    color .25s ease;
+
+}
+
+.links a:hover{
+
+  color:#fff;
+
+}
+
+.navbtn{
+
+  position:relative;
+  z-index:2;
+
+  padding:
+    9px
+    13px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+  border-radius:11px;
+
+  font-size:13px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  transition:
+    .25s ease;
+
+}
+
+.navbtn:hover{
+
+  border-color:
+    rgba(255,255,255,.4);
+
+  background:
+    rgba(255,255,255,.08);
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+  min-height:92vh;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+    150px
+    0
+    80px;
+
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow{
+
+  display:inline-flex;
+
+  gap:8px;
+
+  align-items:center;
+
+  color:#aaa;
+
+  font-size:13px;
+
+  border:
+    1px solid
+    #292929;
+
+  border-radius:999px;
+
+  padding:
+    7px
+    11px;
+
+  margin-bottom:25px;
+
+  background:
+    rgba(13,13,13,.65);
+
+  animation:
+    fadeUp
+    .9s
+    cubic-bezier(.22,1,.36,1)
+    .25s
+    both;
+
+}
+
+.dot{
+
+  width:7px;
+  height:7px;
+
+  background:#fff;
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 14px #fff;
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero h1{
+
+  font-size:
+    clamp(
+      52px,
+      9vw,
+      112px
+    );
+
+  line-height:.93;
+
+  letter-spacing:-.075em;
+
+  max-width:1000px;
+
+  animation:
+    heroTitle
+    1.2s
+    cubic-bezier(.22,1,.36,1)
+    .35s
+    both;
+
+}
+
+.hero h1 span{
+
+  color:#777;
+
+}
+
+
+/* =========================================================
+   HERO PARAGRAPH
+========================================================= */
+
+.hero p{
+
+  max-width:650px;
+
+  color:#a5a5a5;
+
+  font-size:18px;
+
+  margin:
+    28px
+    0;
+
+  animation:
+    fadeUp
+    .9s
+    cubic-bezier(.22,1,.36,1)
+    .5s
+    both;
+
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+
+  padding:
+    95px
+    0;
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+  opacity:0;
+
+  transform:
+    translateY(55px);
+
+  filter:
+    blur(10px);
+
+  transition:
+    opacity .9s cubic-bezier(.22,1,.36,1),
+    transform .9s cubic-bezier(.22,1,.36,1),
+    filter .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+.reveal.show{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+
+  filter:
+    blur(0);
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1.2fr;
+
+  gap:60px;
+
+}
+
+.about h2{
+
+  font-size:48px;
+
+  letter-spacing:-.06em;
+
+  line-height:1;
+
+}
+
+.abouttext{
+
+  color:#aaa;
+
+  font-size:17px;
+
+}
+
+.skills{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-top:25px;
+
+}
+
+.skill{
+
+  border:
+    1px solid
+    #292929;
+
+  background:
+    rgba(14,14,14,.75);
+
+  padding:
+    8px
+    11px;
+
+  border-radius:10px;
+
+  font-size:12px;
+
+  color:#bbb;
+
+  transition:
+    .25s ease;
+
+}
+
+.skill:hover{
+
+  border-color:#555;
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+  padding:
+    20px
+    0
+    95px;
+
+}
+
+.stats-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:20px;
+
+}
+
+.stat{
+
+  padding:
+    35px
+    0;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.12);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.06);
+
+  transition:
+    transform .4s cubic-bezier(.22,1,.36,1),
+    border-color .3s ease;
+
+}
+
+.stat:hover{
+
+  transform:
+    translateY(-5px);
+
+  border-top-color:
+    rgba(255,255,255,.3);
+
+}
+
+.stat-number{
+
+  font-size:
+    clamp(
+      55px,
+      8vw,
+      90px
+    );
+
+  line-height:.9;
+
+  letter-spacing:-.07em;
+
+  font-weight:700;
+
+  color:#f5f5f5;
+
+}
+
+.stat-label{
+
+  margin-top:18px;
+
+  color:#888;
+
+  font-size:22px;
+
+  font-weight:600;
+
+  letter-spacing:-.02em;
+
+  line-height:1;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+  border:
+    1px solid
+    #292929;
+
+  border-radius:28px;
+
+  padding:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(21,21,21,.92),
+      rgba(8,8,8,.92)
+    );
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:30px;
+
+}
+
+.contact h2{
+
+  font-size:
+    clamp(
+      35px,
+      5vw,
+      60px
+    );
+
+  letter-spacing:-.06em;
+
+  line-height:1;
+
+}
+
+.contact p{
+
+  color:#888;
+
+  margin-top:10px;
+
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+========================================================= */
+
+.socials{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:25px;
+
+}
+
+.social{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:
+    12px
+    16px;
+
+  border:
+    1px solid
+    #333;
+
+  border-radius:12px;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  transition:
+    .25s ease;
+
+  background:
+    rgba(13,13,13,.8);
+
+}
+
+.social:hover{
+
+  transform:
+    translateY(-3px);
+
+  border-color:#666;
+
+  background:#171717;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+  padding:
+    35px
+    0
+    50px;
+
+  color:#666;
+
+  font-size:12px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+}
+
+
+/* =========================================================
+   OPENING ANIMATION
+========================================================= */
+
+@keyframes pageReveal{
+
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+@keyframes navReveal{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translate(-50%,-25px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translate(-50%,0);
+
+  }
+
+}
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(25px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+@keyframes heroTitle{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(45px);
+
+    filter:
+      blur(12px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:760px){
+
+  .links{
+    display:none;
+  }
+
+  nav{
+
+    top:12px;
+
+    width:
+      calc(100% - 20px);
+
+    padding:
+      12px
+      13px
+      12px
+      16px;
+
+    border-radius:16px;
+
+    background:
+      rgba(255,255,255,.035);
+
+    -webkit-backdrop-filter:
+      blur(30px)
+      saturate(180%);
+
+    backdrop-filter:
+      blur(30px)
+      saturate(180%);
+
+  }
+
+  .background-animation{
+
+    width:125vw;
+    height:125vw;
+
+    opacity:.045;
+
+  }
+
+  .hero{
+
+    min-height:82vh;
+
+    padding-top:130px;
+
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .about{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+  }
+
+  .about h2{
+    font-size:40px;
+  }
+
+  .stats{
+
+    padding:
+      10px
+      0
+      70px;
+
+  }
+
+  .stats-grid{
+
+    grid-template-columns:1fr;
+
+    gap:0;
+
+  }
+
+  .stat{
+
+    padding:
+      30px
+      0;
+
+  }
+
+  .stat-label{
+    font-size:22px;
+  }
+
+  .contact{
+
+    padding:30px;
+
+    display:block;
+
+  }
+
+  section{
+    padding:70px 0;
+  }
+
+  .socials{
+    flex-direction:column;
+  }
+
+  .social{
+    width:100%;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.01ms !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background">
+
+  <div class="background-animation">
+
+    <svg
+      viewBox="0 0 100 100"
+      fill="none"
+      aria-hidden="true"
+    >
+
+      <g id="group">
+
+        <path
+          id="path"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.1"
+        ></path>
+
+      </g>
+
+    </svg>
+
+  </div>
+
+</div>
+
+<nav>
+
+  <a
+    class="logo"
+    href="#top"
+  >
+    MOHAMED<span style="color:#777">.</span>
+  </a>
+
+  <div class="links">
+
+    <a href="#about">
+      About
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
+  </div>
+
+  <a
+    class="navbtn"
+    href="#contact"
+  >
+    Let's talk
+  </a>
+
+</nav>
+
+<main id="top">
+
+<section class="hero">
+
+  <div class="wrap">
+
+    <div class="eyebrow">
+
+      <span class="dot"></span>
+
+      Available for creative projects
+
+    </div>
+
+    <h1>
+
+      Designing digital things that
+
+      <span>
+        feel different.
+      </span>
+
+    </h1>
+
+    <p>
+
+      I’m Mohamed — a digital creator focused on
+      wallpapers, widgets, visual design, UI concepts
+      and experimental projects.
+
+    </p>
+
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="wrap about reveal">
+
+    <div>
+
+      <h2>
+        About<br>
+        me.
+      </h2>
+
+    </div>
+
+    <div class="abouttext">
+
+      <p>
+
+        I like turning ideas into polished digital
+        experiences. My work sits between visual design,
+        mobile customization, UI experimentation and
+        creative technology.
+
+      </p>
+
+      <div class="skills">
+
+        <span class="skill">
+          Visual Design
+        </span>
+
+        <span class="skill">
+          UI / UX
+        </span>
+
+        <span class="skill">
+          Android Widgets
+        </span>
+
+        <span class="skill">
+          Wallpaper Design
+        </span>
+
+        <span class="skill">
+          Creative Coding
+        </span>
+
+        <span class="skill">
+          Game Concepts
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="stats">
+
+  <div class="wrap stats-grid">
+
+    <div class="stat reveal">
+
+      <div class="stat-number">
+        ∞
+      </div>
+
+      <div class="stat-label">
+        Ideas
+      </div>
+
+    </div>
+
+    <div class="stat reveal">
+
+      <div class="stat-number">
+        100%
+      </div>
+
+      <div class="stat-label">
+        Creative
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="wrap">
+
+    <div class="contact reveal">
+
+      <div>
+
+        <h2>
+          Find me<br>
+          online.
+        </h2>
+
+        <p>
+          Follow my work and creative projects.
+        </p>
+
+        <div class="socials">
+
+          <a
+            class="social"
+            href="https://www.facebook.com/share/1Cq2YiUtMY/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook ↗
+          </a>
+
+          <a
+            class="social"
+            href="https://www.instagram.com/Unavailable0M"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram ↗
+          </a>
+
+          <a
+            class="social"
+            href="https://t.me/Unavailable0M"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Telegram ↗
+          </a>
+
+          <a
+            class="social"
+            href="https://www.threads.net/@Unavailable0M"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Threads ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="wrap">
+</footer>
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+  new IntersectionObserver(
+
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("show");
+
+          observer.unobserve(
+            entry.target
+          );
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:0.15
+    }
+
+  );
+
+
+revealElements.forEach(element => {
+
+  revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   THINKING FIVE ANIMATION
+========================================================= */
+
+const SVG_NS =
+  "http://www.w3.org/2000/svg";
+
+
+const config = {
+
+  rotate:true,
+
+  particleCount:62,
+
+  trailSpan:0.12,
+
+  durationMs:4600,
+
+  rotationDurationMs:28000,
+
+  pulseDurationMs:4200,
+
+  strokeWidth:5.5,
+
+  baseRadius:7,
+
+  detailAmplitude:3,
+
+  petalCount:5,
+
+  curveScale:3.9,
+
+
+  point(
+    progress,
+    detailScale,
+    config
+  ){
+
+    const t =
+      progress *
+      Math.PI *
+      2;
+
+    const petals =
+      Math.round(
+        config.petalCount
+      );
+
+
+    const x =
+      config.baseRadius *
+      Math.cos(t)
+      -
+      config.detailAmplitude *
+      detailScale *
+      Math.cos(
+        petals * t
+      );
+
+
+    const y =
+      config.baseRadius *
+      Math.sin(t)
+      -
+      config.detailAmplitude *
+      detailScale *
+      Math.sin(
+        petals * t
+      );
+
+
+    return {
+
+      x:
+        50 +
+        x *
+        config.curveScale,
+
+      y:
+        50 +
+        y *
+        config.curveScale
+
+    };
+
+  }
+
+};
+
+
+const group =
+  document.querySelector(
+    "#group"
+  );
+
+
+const path =
+  document.querySelector(
+    "#path"
+  );
+
+
+path.setAttribute(
+  "stroke-width",
+  String(
+    config.strokeWidth
+  )
+);
+
+
+const particles =
+  Array.from(
+    {
+      length:
+        config.particleCount
+    },
+    () => {
+
+      const circle =
+        document.createElementNS(
+          SVG_NS,
+          "circle"
+        );
+
+
+      circle.setAttribute(
+        "fill",
+        "currentColor"
+      );
+
+
+      group.appendChild(
+        circle
+      );
+
+
+      return circle;
+
+    }
+  );
+
+
+function normalizeProgress(
+  progress
+){
+
+  return (
+    (progress % 1) + 1
+  ) % 1;
+
+}
+
+
+function getDetailScale(
+  time
+){
+
+  const pulseProgress =
+    (
+      time %
+      config.pulseDurationMs
+    ) /
+    config.pulseDurationMs;
+
+
+  const pulseAngle =
+    pulseProgress *
+    Math.PI *
+    2;
+
+
+  return (
+    0.52 +
+    (
+      (
+        Math.sin(
+          pulseAngle +
+          0.55
+        ) + 1
+      ) / 2
+    ) *
+    0.48
+  );
+
+}
+
+
+function getRotation(
+  time
+){
+
+  if(
+    !config.rotate
+  ){
+
+    return 0;
+
+  }
+
+
+  return -(
+    (
+      time %
+      config.rotationDurationMs
+    ) /
+    config.rotationDurationMs
+  ) * 360;
+
+}
+
+
+function buildPath(
+  detailScale,
+  steps = 480
+){
+
+  return Array.from(
+    {
+      length:
+        steps + 1
+    },
+    (_, index) => {
+
+      const point =
+        config.point(
+          index / steps,
+          detailScale,
+          config
+        );
+
+
+      return `${
+        index === 0
+          ? "M"
+          : "L"
+      } ${
+        point.x.toFixed(2)
+      } ${
+        point.y.toFixed(2)
+      }`;
+
+    }
+  ).join(" ");
+
+}
+
+
+function getParticle(
+  index,
+  progress,
+  detailScale
+){
+
+  const tailOffset =
+    index /
+    (
+      config.particleCount -
+      1
+    );
+
+
+  const point =
+    config.point(
+      normalizeProgress(
+        progress -
+        tailOffset *
+        config.trailSpan
+      ),
+      detailScale,
+      config
+    );
+
+
+  const fade =
+    Math.pow(
+      1 - tailOffset,
+      0.56
+    );
+
+
+  return {
+
+    x:
+      point.x,
+
+    y:
+      point.y,
+
+    radius:
+      0.9 +
+      fade *
+      2.7,
+
+    opacity:
+      0.04 +
+      fade *
+      0.96
+
+  };
+
+}
+
+
+const startedAt =
+  performance.now();
+
+
+function render(
+  now
+){
+
+  const time =
+    now -
+    startedAt;
+
+
+  const progress =
+    (
+      time %
+      config.durationMs
+    ) /
+    config.durationMs;
+
+
+  const detailScale =
+    getDetailScale(
+      time
+    );
+
+
+  group.setAttribute(
+    "transform",
+    `rotate(
+      ${getRotation(time)}
+      50
+      50
+    )`
+  );
+
+
+  path.setAttribute(
+    "d",
+    buildPath(
+      detailScale
+    )
+  );
+
+
+  particles.forEach(
+    (
+      node,
+      index
+    ) => {
+
+      const particle =
+        getParticle(
+          index,
+          progress,
+          detailScale
+        );
+
+
+      node.setAttribute(
+        "cx",
+        particle.x.toFixed(2)
+      );
+
+
+      node.setAttribute(
+        "cy",
+        particle.y.toFixed(2)
+      );
+
+
+      node.setAttribute(
+        "r",
+        particle.radius.toFixed(2)
+      );
+
+
+      node.setAttribute(
+        "opacity",
+        particle.opacity.toFixed(3)
+      );
+
+    }
+  );
+
+
+  requestAnimationFrame(
+    render
+  );
+
+}
+
+
+requestAnimationFrame(
+  render
+);
+
+</script>
+</body>
+</html>
